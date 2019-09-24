@@ -9,18 +9,20 @@
  *
  * options object supports these keys:
  *     shuffle {boolean} should the questions be shuffled before rendered?
+ *     shuffle_answers {boolean} should the answers be shuffled before rendered?
  */
+
 function Quiz(name, questions, options) {
     this.name = name;
     this.questions = questions;
     this.options = options || {};
+    if (this.options.shuffle) this.shuffleQuestions();
     this.create();
 }
 
-
 Quiz.prototype.getName = function() {
     return this.name;
-}
+};
 
 
 Quiz.prototype.setName = function(name) {
@@ -30,12 +32,23 @@ Quiz.prototype.setName = function(name) {
 
 
 Quiz.prototype.getQuestions = function() {
-    return this.questions
+    return this.questions;
 };
 
 
 Quiz.prototype.setQuestions = function(questions) {
     this.questions = questions;
+    return this.questions;
+};
+
+
+Quiz.prototype.shuffleQuestions = function() {
+    for(let i = this.questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * i);
+        const temp = this.questions[i];
+        this.questions[i] = this.questions[j];
+        this.questions[j] = temp;
+    }
     return this.questions;
 };
 
@@ -52,7 +65,7 @@ Quiz.prototype.removeQuestion = function(question) {
 
 
 Quiz.prototype.create = function() {
-    var form = document.createElement("form"),
+    let form = document.createElement("form"),
         submit = document.createElement("input"),
         self = this;
 
@@ -67,8 +80,8 @@ Quiz.prototype.create = function() {
         self.submit();
     })
 
-    for (var i in this.questions) {
-        form.appendChild(this.questions[i].render(this.options.shuffle || false));
+    for (let i in this.questions) {
+        form.appendChild(this.questions[i].render(this.options.shuffle_answers || false));
     }
 
     form.appendChild(submit);
@@ -77,15 +90,15 @@ Quiz.prototype.create = function() {
 
 
 Quiz.prototype.submit = function() {
-    var missing = 0,
+    let missing = 0,
         right = 0,
         wrong = 0;
 
-    for (var q of this.getQuestions()) {
-        var choice = null;
+    for (let q of this.getQuestions()) {
+        let choice = null;
 
     // validate
-        for (var o of q.getOptions()) {
+        for (let o of q.getOptions()) {
             if (o.isSelected()) {
                 choice = o;
             }
@@ -108,5 +121,5 @@ Quiz.prototype.submit = function() {
     }
 
     // show result
-    var result = new Result(missing, right, wrong).render();
+    let result = new Result(missing, right, wrong).render();
 };
