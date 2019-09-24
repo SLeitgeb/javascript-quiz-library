@@ -9,7 +9,7 @@ body {
 fieldset {
     border-color: #356AA0;
     margin-bottom: 1em;
-
+    border-width: 2px;
 }
 
     legend {
