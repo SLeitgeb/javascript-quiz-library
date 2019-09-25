@@ -15,7 +15,7 @@ let questions = [
     new Question("Bezpečnostní značka v provedení modrý kruh, bílý symbol je značka:", ["příkazu", "informační", "rozkazu"], 0),
     new Question("Bezpečnostní značky v provedení na zeleném podkladu jsou značky:", ["informační", "doporučovací", "příkazu"], 0),
     new Question("V označení stupně krytí IP udává první číslice:", ["stupeň ochrany osob před nebezpečným dotykem živých částí a stupeň ochrany zařízení před vniknutím cizích pevných těles", "stupeň ochrany osob před nebezpečným dotykem živých částí a stupeň ochrany zařízení před vniknutím cizích tekutých těles", "stupeň ochrany osob před nebezpečným dotykem neživých částí a stupeň ochrany zařízení před vniknutím cizích pevných těles"], 0),
-    new Question("Prostředky základní ochrany (před přímým dotykem) EZ zajišťují ochranu:", ["jen při normálním provozu", "při normálním a speciálním provozu provozu",  "jen při speciálním provozu"], 0),
+    new Question("Prostředky základní ochrany (před přímým dotykem) EZ zajišťují ochranu:", ["jen při normálním provozu", "při normálním a speciálním provozu",  "jen při speciálním provozu"], 0),
     new Question("Prostředky zvýšené ochrany (před přímým i nepřímým dotykem) EZ zajišťují ochranu:", ["základní i při poruše", "jen při normálním provozu", "jen při poruše"], 0),
     new Question("Při ochraně automatickým odpojením se pro střídavé rozvodné sítě do 1000 V dovoluje doba odpojení:", ["nepřesahující 5 s", "přesahující 5 s", "nepřesahující 3 s"], 0),
     new Question("Pro automatické odpojení od zdroje v síti TT 230 V AC, zajišťující ochranu před nepřímým dotykem koncového obvodu do 32 A, musí ochranný prvek vypnout v čase do:", ["0,2 s.", "0,4 s.", "0,6 s."], 0),
